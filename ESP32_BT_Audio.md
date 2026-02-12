@@ -1,5 +1,5 @@
 # Project Name: ESP32 Bluetooth Audio
-**Course:** ENGR4321 Microcontrollers Embedded Systems  
+**Course:** ENGR 4321 Microcontrollers Embedded Systems  
 **Student:** Daniel Critchlow Jr.  
 **Date:** 9 Feb 2026
 
@@ -44,8 +44,15 @@ The raw analog signal undergoes two final stages before reaching the speaker:
 * **Passive Filtering:** A **10K resistor** is placed in series to create a simple low-pass filter with the circuit's parasitic capacitance, effectively suppressing high-frequency noise and smoothing the output.
 * **Active Amplification:** Because the internal DAC output is restricted to **1.1V**, it enters the **Audio Amplifier Module**. The amplifier increases the signal's current and voltage to a level capable of vibrating the speaker's diaphragm, producing audible sound.
 
+## Discussion: Challenges and Behavior
+A significant technical challenge encountered during simulation was the implementation of the custom `audio-amp.chip.c` logic. The Wokwi API version required strict alignment between the JSON pin definitions and the C initialization. Specifically, a build error was resolved by updating the `pin_watch` configuration to use the `.pin_change` field instead of `.callback` or `.on_change` to match the specific header definitions of the simulator environment.
+
+Another interesting anomaly was the behavior of the pot we added. When we go from max to min turn, it will cut audio and pause the music player on the phone. Not sure how that happens but it was interesting behavior.
+
+---
+
 ## Conclusion
-This project successfully demonstrates the integration of wireless communication and digital signal processing within an embedded system. By leveraging the ESP32's internal I2S and DAC peripherals, we transformed a standard microcontroller into a functional audio receiver capable of playing high-fidelity streams from a mobile device. The implementation of passive RC filtering highlights the importance of hardware-level signal conditioning in reducing high-frequency noise inherent in digital-to-analog conversion.
+This project successfully demonstrates the successful use of 32-bit hardware-software interaction to create a complex audio system. It highlights the versatility of the ESP32's internal peripherals, such as I2S and DAC, to handle real-time data streams without external dedicated silicon.
 
 
 
@@ -53,5 +60,5 @@ This project successfully demonstrates the integration of wireless communication
 * **External I2S DAC Integration:** Upgrading from the 8-bit internal DAC to a dedicated 24-bit external DAC (e.g., PCM5102A) would significantly improve signal-to-noise ratio and audio clarity.
 * **Stereo Output Implementation:** While the current build is mono, the circuit can be expanded by adding a second amplifier and speaker to utilize both DAC channels (GPIO 25 and 26) for a full stereo experience.
 * **Graphic Equalizer Display:** Integrating an I2C OLED display could allow for real-time visualization of the audio frequencies using Fast Fourier Transform (FFT) processing.
-* **Volume Control Interface:** Adding a physical rotary encoder or utilizing the existing potentiometer to adjust gain levels within the software would provide a more tactile user experience.
+* **Volume Control Interface ():** Adding a physical rotary encoder or utilizing the existing potentiometer to adjust gain levels within the software would provide a more tactile user experience.
 * **Battery Power Management:** Incorporating a LiPo battery and a charging circuit would make the system a truly portable wireless speaker solution.
