@@ -18,9 +18,8 @@ This project involves building a Bluetooth-enabled audio system that leverages a
 ---
 
 ## Simulation Link
-* [Click here to view the Wokwi Simulation](https://wokwi.com/projects/455782918003372033)
-* [Lab content link](https://docs.sunfounder.com/projects/esp32-starter-kit/en/latest/arduino/basic_projects/ar_bluetooth_audio_player.html)
-
+* <a href="https://wokwi.com/projects/455782918003372033" target="_blank">Wokwi Lab link</a>
+* <a href="https://docs.sunfounder.com/projects/esp32-starter-kit/en/latest/arduino/basic_projects/ar_bluetooth_audio_player.html" target="_blank">Lab content link</a>
 ---
 
 ## How It Works
