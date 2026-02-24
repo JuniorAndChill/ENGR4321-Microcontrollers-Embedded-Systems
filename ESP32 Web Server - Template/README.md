@@ -197,15 +197,15 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("\nConnected to Network!");
+  Serial.println("\nConnected to Network!");8
 }
 
 void loop() {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
 
-    // Construct URL: http://<IP>:5000/connect
-    String serverPath = "http://" + String(serverIP) + ":5000/connect";
+    // Construct URL: http://<IP>:8080/connect for example (note that port 5000 is decent however you may run into issues with features like AirDrop)
+    String serverPath = "http://" + String(serverIP) + ":8080/connect";
     
     http.begin(serverPath);
     
